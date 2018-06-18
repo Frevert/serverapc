@@ -3,7 +3,7 @@ var app = express();
 
 app.use(express.static('puplic'));
 
-app.get('get', function(reg,res){
+app.get('/', function(reg,res){
 	res.send('Hello World');
 });
 
