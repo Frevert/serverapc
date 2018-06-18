@@ -4,10 +4,9 @@
 	<title>Simple Upload Example</title>
 </head>
 <body>
-<form action="/process_get" method="GET">
-	First Name: <input type="text" name="first_name"> <br>
-	Last Name: <input type="text" name="last_name">
-	<input type="submit" value="Submit">
+<form action="/" enctype="multipart/form-data" method="post">
+	<input type="file" name="upload" multiple>
+	<input type="submit" value="Upload">
 </form>
 </body>
 </html>
