@@ -3,6 +3,8 @@ var formidable = require('formidable');
 
 var app = express();
 
+app.use(express.static('puplic'));
+
 app.get('/', function(req, res) {
 	res.sendFile(__dirname + '/index.html');
 });
@@ -13,7 +15,7 @@ app.post('/', function(req,res) {
 	form.parse(req);
 	
 	form.on('fileBegin', function(name, file) {
-		file.path = __dirname + '/uploads/' + file.name;
+		file.path = __dirname + '/puplic/' + file.name;
 	});
 	
 	form.on('file', function(name, file) {
