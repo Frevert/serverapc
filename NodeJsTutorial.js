@@ -5,7 +5,7 @@ var app = express();
 app.use(express.static('puplic'));
 
 app.get('/index.htm', function(req, res){
-	res.sendFile(__dirname + '/' + "index.htm");
+	res.sendFile(__dirname + '/' + "index.html");
 });
 
 app.get('/process_get', function(req,res){
