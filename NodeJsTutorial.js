@@ -13,7 +13,7 @@ app.get('/process_get', function(req,res){
 		first_name:req.query.first_name,
 		last_name:req.query.last_name
 	};
-	console.log(respone);
+	console.log(response);
 	res.end(JSON.stringify(response));
 });
 
