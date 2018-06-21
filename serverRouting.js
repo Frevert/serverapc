@@ -34,9 +34,10 @@ app.put('/', function(req, res){
 		res.status(404).send("Missing id");
 	}else{
 		couch.get("all_sensors", req.body.id).then(({data, headers, status}) => {
+			var config = data.config;
 			res.sendStatus(200);
 			req.body.data.forEach((data) => {
-				checkData(data);
+				checkData(data, config);
 				couch2.insert("sensor_"+req.body.id, {
 					timestamp: data.timestamp,
 					temperature: data.temperature,
@@ -57,7 +58,17 @@ app.put('/', function(req, res){
 app.listen(8080);
 
 
-checkData = function(data){
-	console.log(data.timestamp);
-	console.log("Funktion");
+checkData = function(data, config){
+	if(data.temperature>=config.temperature_limit){
+		sendMail.MailSenden(config.userId[0], "Temperature is over " + config.temperature_limit);
+	}
+	if(data.humidity>= config.humidity_limit){
+		sendMail.MailSenden(config.userId[0], "Humidity is over " + config.humidity_limit);
+	}
+	if(data.pm25>=config.pm25_limit){
+		sendMail.MailSenden(config.userId[0], "Value of pm2.5 is over " + config.pm25_limit);
+	}
+	if(data.pm10>=config.pm10_limit){
+		sendMail.MailSenden(config.userId[0], "Value of pm 10 is over " + config.pm10_limit);
+	}
 }
