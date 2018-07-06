@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.com/Frevert/serverapc.svg?branch=master)](https://travis-ci.com/Frevert/serverapc)
+
 # AP - serverapi
 Repository for project 'Air Pollution Control' (Server part)
 
