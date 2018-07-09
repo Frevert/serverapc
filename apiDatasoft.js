@@ -8,7 +8,7 @@ var couch = new NodeCouchDb({
 	port:5984
 });
 
-https.get('https://public.opendatasoft.com/api/records/1.0/search/?dataset=api-luftdateninfo&rows=1000&sort=-timestamp&facet=timestamp&facet=land&facet=value_type&facet=sensor_manufacturer&facet=sensor_name&refine.timestamp=2018-07-04&refine.land=Nordrhein-Westfalen&timezone=Europe%2FBerlin', (resp) => {
+https.get('https://public.opendatasoft.com/api/records/1.0/search/?dataset=api-luftdateninfo&rows=1000&sort=-timestamp&facet=timestamp&facet=land&facet=value_type&facet=sensor_manufacturer&facet=sensor_name&refine.land=Nordrhein-Westfalen&timezone=Europe%2FBerlin', (resp) => {
 	let data = '';
 
 	resp.on('data', (chunk) => {
