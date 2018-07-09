@@ -10,7 +10,6 @@ https.get('https://public.opendatasoft.com/api/records/1.0/search/?dataset=api-l
 		data +=chunk;
 	});
 	
-	resp.on('end' () => {
 	resp.on('end', () => {
 		var apiData = JSON.parse(data);
 		pm10Value = apiData;
