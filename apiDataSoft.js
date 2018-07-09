@@ -1,6 +1,6 @@
 const https = require('https');
 
-getPM10Data = function () {
+function getPM10Data() {
 	https.get('https://public.opendatasoft.com/api/records/1.0/search/?dataset=api-luftdateninfo&rows=100&sort=-timestamp&facet=timestamp&facet=land&facet=value_type&facet=sensor_manufacturer&facet=sensor_name&refine.value_type=PM10&refine.land=Nordrhein-Westfalen', (resp) => {
 		let data = '';
 		
@@ -17,7 +17,7 @@ getPM10Data = function () {
 }
 
 
-getPM25Data = function() {
+function getPM25Data() {
 	https.get('https://public.opendatasoft.com/api/records/1.0/search/?dataset=api-luftdateninfo&rows=100&sort=-timestamp&facet=timestamp&facet=land&facet=value_type&facet=sensor_manufacturer&facet=sensor_name&refine.value_type=PM2.5&refine.land=Nordrhein-Westfalen', (resp) => {
 		let data = '';
 		resp.on('data', (chunk) => {
