@@ -19,7 +19,7 @@ https.get('https://public.opendatasoft.com/api/records/1.0/search/?dataset=api-l
 			for(var i = 0;i<pm10Value.records.length;i++){
 				for(var j=0; j<pm25Value.records.length; j++){
 					if(pm25Value.records[j].fields.timestamp == pm10Value.records[i].fields.timestamp && pm25Value.records[j].fields.location[0] == pm10Value.records[i].fields.location[0] && pm25Value.records[j].fields.location[1] == pm10Value.records[i].fields.location[1]){
-						var JSONString = '{"pm25": ' + pm25Value.records[j].fields.value + ', "pm10": ' + pm10Value.records[i].fields.value + ', "timestamp": ' + pm25Value.records[j].fields.timestamp + ', "lat": ' + pm25.records[j].fields.location[0] + ', "long": ' + ppm25Value.records[j].fields.location[1] + '}';
+						var JSONString = '{"pm25": ' + pm25Value.records[j].fields.value + ', "pm10": ' + pm10Value.records[i].fields.value + ', "timestamp": ' + pm25Value.records[j].fields.timestamp + ', "lat": ' + pm25Value.records[j].fields.location[0] + ', "long": ' + pm25Value.records[j].fields.location[1] + '}';
 						console.log(JSONString);
 					}
 				}
@@ -44,7 +44,7 @@ https.get('https://public.opendatasoft.com/api/records/1.0/search/?dataset=api-l
 			for(var i = 0; i<pm10Value.records.length; i++){
 				for(var j=0; j<pm25Value.records.length; j++){
 					if(pm25Value.records[j].fields.timestamp == pm10Value.records[i].fields.timestamp && pm25Value.records[j].fields.location[0] == pm10Value.records[i].fields.location[0] && pm25Value.records[j].fields.location[1] == pm10Value.records[i].fields.location[1]){
-						var JSONString = '{"pm25": ' + pm25Value.records[j].fields.value + ', "pm10": ' + pm10Value.records[i].fields.value + ', "timestamp": ' + pm25Value.records[j].fields.timestamp + ', "lat": ' + pm25Value.records[j].fields.location[0] + ', "long": ' + ppm25Value.records[j].fields.location[1] + '}';
+						var JSONString = '{"pm25": ' + pm25Value.records[j].fields.value + ', "pm10": ' + pm10Value.records[i].fields.value + ', "timestamp": ' + pm25Value.records[j].fields.timestamp + ', "lat": ' + pm25Value.records[j].fields.location[0] + ', "long": ' + pm25Value.records[j].fields.location[1] + '}';
 						console.log(JSONString);
 					}
 				}
