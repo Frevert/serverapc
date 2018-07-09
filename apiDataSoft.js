@@ -16,7 +16,7 @@ https.get('https://public.opendatasoft.com/api/records/1.0/search/?dataset=api-l
 		console.log(apiData.records.length);
 		if(pm25Value != ''){
 			for(var i = 0;i<pm10Value.records.length;i++){
-				for(var j=j<pm25Value.records.length;j++){
+				for(var j=0; j<pm25Value.records.length; j++){
 					if(pm25Value.records[j].fields.timestamp == pm10.records[i].fields.timestamp && pm25Value.records[j].fields.location[0] == pm10Value.records[i].fields.location[0] && pm25Value.records[j].fields.location[1] == pm10Value.records[i].fields.location[1]){
 						console.log("gefunden");
 					}
@@ -39,8 +39,8 @@ https.get('https://public.opendatasoft.com/api/records/1.0/search/?dataset=api-l
 		pm25Value = apiData;
 		console.log("pm25:" + apiData.records.length);
 		if(pm10Value != ''){
-			for(var i = 0;i<pm10Value.records.length;i++){
-				for(var j=j<pm25Value.records.length;j++){
+			for(var i = 0; i<pm10Value.records.length; i++){
+				for(var j=0; j<pm25Value.records.length; j++){
 					if(pm25Value.records[j].fields.timestamp == pm10.records[i].fields.timestamp && pm25Value.records[j].fields.location[0] == pm10Value.records[i].fields.location[0] && pm25Value.records[j].fields.location[1] == pm10Value.records[i].fields.location[1]){
 						console.log("gefunden");
 					}
