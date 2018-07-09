@@ -8,7 +8,7 @@ getPM10Data = function () {
 			data +=chunk;
 		});
 		
-		resp.on('end' () => {
+		resp.on('end', () => {
 			var apiData = JSON.parse(data);
 			return apiData;
 		});
