@@ -36,6 +36,7 @@ https.get('https://public.opendatasoft.com/api/records/1.0/search/?dataset=api-l
 					}
 				}
 			}
+			console.log("Succesfull! Wrote " + myArray.length + " data to api_exampleapi");
 		}
 	});
 }).on('error',()=>{
@@ -68,6 +69,7 @@ https.get('https://public.opendatasoft.com/api/records/1.0/search/?dataset=api-l
 					}
 				}
 			}
+			console.log("Succesfull! Wrote " + myArray.length + " data to api_exampleapi");
 		}
 	});
 }).on('error', () => {
