@@ -20,10 +20,12 @@ https.get('https://public.opendatasoft.com/api/records/1.0/search/?dataset=api-l
 				for(var j=0; j<pm25Value.records.length; j++){
 					if(pm25Value.records[j].fields.timestamp == pm10Value.records[i].fields.timestamp && pm25Value.records[j].fields.location[0] == pm10Value.records[i].fields.location[0] && pm25Value.records[j].fields.location[1] == pm10Value.records[i].fields.location[1]){
 						var JSONString = '{"pm25": ' + pm25Value.records[j].fields.value + ', "pm10": ' + pm10Value.records[i].fields.value + ', "timestamp": ' + pm25Value.records[j].fields.timestamp + ', "lat": ' + pm25Value.records[j].fields.location[0] + ', "long": ' + pm25Value.records[j].fields.location[1] + '}';
+						myArray.push(JSONString);
 						console.log(JSONString);
 					}
 				}
 			}
+			console.log(myArray.length);
 		}
 	});
 }).on('error',()=>{
@@ -38,6 +40,7 @@ https.get('https://public.opendatasoft.com/api/records/1.0/search/?dataset=api-l
 	
 	resp.on('end', () => {
 		var apiData = JSON.parse(data);
+		var myArray = [];
 		pm25Value = apiData;
 		console.log("pm25:" + apiData.records.length);
 		if(pm10Value != ''){
@@ -45,10 +48,12 @@ https.get('https://public.opendatasoft.com/api/records/1.0/search/?dataset=api-l
 				for(var j=0; j<pm25Value.records.length; j++){
 					if(pm25Value.records[j].fields.timestamp == pm10Value.records[i].fields.timestamp && pm25Value.records[j].fields.location[0] == pm10Value.records[i].fields.location[0] && pm25Value.records[j].fields.location[1] == pm10Value.records[i].fields.location[1]){
 						var JSONString = '{"pm25": ' + pm25Value.records[j].fields.value + ', "pm10": ' + pm10Value.records[i].fields.value + ', "timestamp": ' + pm25Value.records[j].fields.timestamp + ', "lat": ' + pm25Value.records[j].fields.location[0] + ', "long": ' + pm25Value.records[j].fields.location[1] + '}';
+						myArray.push(JSONString);
 						console.log(JSONString);
 					}
 				}
 			}
+			console.log(myArray.length);
 		}
 	});
 }).on('error', () => {
