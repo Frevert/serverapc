@@ -18,7 +18,7 @@ https.get('https://public.opendatasoft.com/api/records/1.0/search/?dataset=api-l
 	
 	resp.on('end', () => {
 		var apiData = JSON.parse(data);
-		var myArray = [];
+		var counter = 0;
 		pm10Value = apiData;
 		if(pm25Value != ''){
 			for(var i = 0;i<pm10Value.records.length;i++){
@@ -33,6 +33,7 @@ https.get('https://public.opendatasoft.com/api/records/1.0/search/?dataset=api-l
 						}).then(({data, headers, status}) => {
 						}, err => {
 						});
+						counter++;
 					}
 				}
 			}
@@ -51,7 +52,7 @@ https.get('https://public.opendatasoft.com/api/records/1.0/search/?dataset=api-l
 	
 	resp.on('end', () => {
 		var apiData = JSON.parse(data);
-		var myArray = [];
+		var counter = 0;
 		pm25Value = apiData;
 		if(pm10Value != ''){
 			for(var i = 0; i<pm10Value.records.length; i++){
@@ -66,6 +67,7 @@ https.get('https://public.opendatasoft.com/api/records/1.0/search/?dataset=api-l
 						}).then(({data, headers, status}) => {
 						}, err => {
 						});
+						counter++;
 					}
 				}
 			}
