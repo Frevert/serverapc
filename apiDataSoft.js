@@ -9,8 +9,7 @@ getPM10Data = function () {
 		});
 		
 		resp.on('end', () => {
-			var apiData = JSON.parse(data);
-			return apiData;
+			return data;
 		});
 	}).on('error',()=>{
 			console.log(JSON.parse(data).explanation);
@@ -26,16 +25,15 @@ getPM25Data = function() {
 		});
 		
 		resp.on('end', () => {
-			var apiData = JSON.parse(data);
-			return apiData;
+			return data;
 		});
 	}).on('error', () => {
 		console.log(JSON.parse(data).explanation);
 	});
 }
 
-var pm25Data = getPM25Data;
-var pm10Data = getPM10Data;
+var pm25Data = JSON.parse(getPM25Data);
+var pm10Data = JSON.parse(getPM10Data);
 
 console.log("PM2.5: " + pm25Data.records.length);
 console.log("PM10: " + pm10Data.records.length);
