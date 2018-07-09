@@ -15,7 +15,7 @@ https.get('https://public.opendatasoft.com/api/records/1.0/search/?dataset=api-l
 		pm10Value = apiData;
 		console.log(apiData.records.length);
 		if(pm25Value != ''){
-			console.log("In GetPM10 PM25 Menge: " + pm25Value.recors.length);
+			console.log("In GetPM10 PM25 Menge: " + pm25Value.records.length);
 		}
 	});
 }).on('error',()=>{
