@@ -4,7 +4,7 @@ var pm10Value='';
 const NodeCouchDb = require('node-couchdb');
 var date = require('date-and-time');
 
-date.local('de');
+date.locale('de');
  
 var couch = new NodeCouchDb({
 	host:'www.wasdabyx.de',
