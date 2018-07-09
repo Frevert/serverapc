@@ -28,8 +28,8 @@ https.get('https://public.opendatasoft.com/api/records/1.0/search/?dataset=api-l
 							timestamp: pm25Value.records[j].fields.timestamp,
 							pm10: pm10Value.records[i].fields.value,
 							pm25: pm25Value.records[j].fields.value,
-							long: pm25Value.records[j].fields.location[0],
-							lat: pm25Value.records[j].fields.location[1]
+							long: pm25Value.records[j].fields.location[1],
+							lat: pm25Value.records[j].fields.location[0]
 						}).then(({data, headers, status}) => {
 						}, err => {
 						});
@@ -60,8 +60,8 @@ https.get('https://public.opendatasoft.com/api/records/1.0/search/?dataset=api-l
 							timestamp: pm25Value.records[j].fields.timestamp,
 							pm10: pm10Value.records[i].fields.value,
 							pm25: pm25Value.records[j].fields.value,
-							long: pm25Value.records[j].fields.location[0],
-							lat: pm25Value.records[j].fields.location[1]
+							long: pm25Value.records[j].fields.location[1],
+							lat: pm25Value.records[j].fields.location[0]
 						}).then(({data, headers, status}) => {
 						}, err => {
 						});
