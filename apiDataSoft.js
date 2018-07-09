@@ -14,6 +14,9 @@ https.get('https://public.opendatasoft.com/api/records/1.0/search/?dataset=api-l
 		var apiData = JSON.parse(data);
 		pm10Value = apiData;
 		console.log(apiData.records.length);
+		if(pm25Value != ''){
+			console.log("In GetPM10");
+		}
 	});
 }).on('error',()=>{
 		console.log(JSON.parse(data).explanation);
@@ -29,10 +32,10 @@ https.get('https://public.opendatasoft.com/api/records/1.0/search/?dataset=api-l
 		var apiData = JSON.parse(data);
 		pm25Value = apiData;
 		console.log("pm25:" + apiData.records.length);
+		if(pm10Value != ''){
+			console.log("In GetPM25");
+		}
 	});
 }).on('error', () => {
 	console.log(JSON.parse(data).explanation);
 });
-if(pm25Value != '' && pm10Value != ''){
-	console.log("Bumm");
-}
