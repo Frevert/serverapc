@@ -13,7 +13,9 @@ var couch = new NodeCouchDb({
   port: 5984,
 });
 
+/* eslint-disable */
 https.get('https://public.opendatasoft.com/api/records/1.0/search/?dataset=api-luftdateninfo&rows=500&sort=-timestamp&facet=timestamp&facet=land&facet=value_type&facet=sensor_manufacturer&facet=sensor_name&refine.value_type=PM10&refine.land=Nordrhein-Westfalen', (resp) => {
+/* eslint-enable */
   let data = '';
   var datum = date.format(new Date(), 'DD.MM.YY');
   resp.on('data', (chunk) => {
@@ -47,9 +49,10 @@ https.get('https://public.opendatasoft.com/api/records/1.0/search/?dataset=api-l
 }).on('error', () => {
   console.log(resp.err.explanation);
 });
-
+/* eslint-disable */
 https.get('https://public.opendatasoft.com/api/records/1.0/search/?dataset=api-luftdateninfo&rows=500&sort=-timestamp&facet=timestamp&facet=land&facet=value_type&facet=sensor_manufacturer&facet=sensor_name&refine.value_type=PM2.5&refine.land=Nordrhein-Westfalen', (resp) => {
-  let data = '';
+/* eslint-enable */
+let data = '';
   var datum = date.format(new Date(), 'DD.MM.YY');
 
   resp.on('data', (chunk) => {
