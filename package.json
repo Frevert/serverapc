@@ -4,7 +4,7 @@
   "description": "Repository for project 'Air Pollution Control' (Server part)",
   "main": "serverRouting.js",
   "scripts": {
-    "pretest": "eslint --ignore-path .gitignore ."
+    "test": "eslint --ignore-path .gitignore ."
   },
   "repository": {
     "type": "git",

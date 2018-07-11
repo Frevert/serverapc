@@ -20,10 +20,12 @@ app.use(express.json());
 app.get('/config', function(req, res){
   /* eslint-disable */
   couch.get('all_sensors', 'sensor_' + req.param('id')).then(({data, headers, status}) => {
-    var responseJson = '{"id": ' + data.config.identifier + ', "url":"http://www.wasdabyx.de:8080","interval":' + data.config.interval + ', "long": ' + data.config.long + ', "lat": ' + data.config.lat + '}';
+    var responseJson = '{"id": \"' + data.config.identifier + '\", "url":"http://www.wasdabyx.de:8080","interval":' + data.config.interval + ', "long": ' + data.config.long + ', "lat": ' + data.config.lat + '}';
     /* eslint-enable */
+    console.log(responseJson);
     res.send(responseJson);
   }, err => {
+    console.log(err.message);
     res.send(err.message);
   });
 });
