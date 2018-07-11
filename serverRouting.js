@@ -50,7 +50,7 @@ app.put('/', function(req, res){
         }).then(({data, headers, status}) => {
 
         }, err => {
-
+          console.log('Fehler');
         });
       });
     }, err => {
@@ -66,7 +66,9 @@ checkEmailNotification = function(weatherData, config){
   userIds.forEach((userId) => {
     couch.get('all_users', userId).then(({data, headers, status}) => {
       if (data.emailnotification){
+        /* eslint-disable */
         checkWeatherData(weatherData, config.config, data.email, config.config.identifier);
+        /* eslint-enable */
       }
     }, err => {
       console.log(err.message);
@@ -74,7 +76,7 @@ checkEmailNotification = function(weatherData, config){
   });
 };
 
-checkWeatherData = function(weatherData, config, emailAddress, sensorId) {
+function checkWeatherData(weatherData, config, emailAddress, sensorId) {
   /* eslint-disable */
   if (weatherData.temperature >= config.temperature_limit){
     sendMail.MailSenden(emailAddress, 'Temperature is over ' + config.temperature_limit, sensorId);
