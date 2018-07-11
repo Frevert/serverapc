@@ -1,3 +1,4 @@
+"use strict"
 const https = require('https');
 var pm25Value = '';
 var pm10Value = '';
