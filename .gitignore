@@ -1,1 +1,10 @@
-.eslintrc.json couchdb.js gettingCouchDbData.js logging.log package.json package-lock.json process.js puplic/JavaScript.html puplic/Rechercheaufgabe.pdf puplic/asset-manifest.json puplic/css puplic/dumb puplic/favicon.ico puplic/img puplic/index.html puplic/js puplic/manifest.json puplic/service-worker.js puplic/static uploads/Oldschooldiet.pdf
+node_modules/
+demo_sendmail.js.save
+gettingCouchDbData.js
+logging.log
+package-lock.json
+process.js
+puplic/
+uploads/
+couchdb.js
+.mailsenden.js.swp
