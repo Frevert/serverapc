@@ -13,10 +13,10 @@ const ca = fs.readFileSync('/etc/letsencrypt/live/wasdabyx.de/chain.pem', 'utf8'
 const credentials = {
   key: privateKey,
   cert: certificate,
-  ca: ca
+  ca: ca,
 };
 
-app.get('/', function(reg,res){
+app.get('/', function(reg, res){
   res.send('Hello World');
 });
 
@@ -24,7 +24,7 @@ app.get('/', function(reg,res){
 const httpServer = http.createServer(app);
 const httpsServer = https.createServer(credentials, app);
 
-httpServer.listen(80, () =>{
+httpServer.listen(80, () => {
   console.log('HTTP Server running on port 80');
 });
 

@@ -22,7 +22,6 @@
     "formidable": "^1.2.1"
   },
   "devDependencies": {
-    "babel-eslint": "^8.2.5",
     "eslint": "^5.1.0",
     "eslint-config-strongloop": "^2.1.0"
   }
