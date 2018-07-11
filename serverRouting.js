@@ -38,7 +38,9 @@ app.put('/', function(req, res){
       var config = data;
       res.sendStatus(200);
       req.body.data.forEach((data) => {
-        checkEmailNotification(data, config);
+        if(config.userId !== undefined){
+          checkEmailNotification(data, config);
+        }
         couch2.insert('sensor_' + req.body.id, {
           timestamp: data.timestamp,
           temperature: data.temperature,
