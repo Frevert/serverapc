@@ -51,7 +51,7 @@ https.get('https://public.opendatasoft.com/api/records/1.0/search/?dataset=api-l
     }
   });
 }).on('error', () => {
-  console.log("Fehler");
+  console.log('Fehler');
 });
 /* eslint-disable */
 https.get('https://public.opendatasoft.com/api/records/1.0/search/?dataset=api-luftdateninfo&rows=500&sort=-timestamp&facet=timestamp&facet=land&facet=value_type&facet=sensor_manufacturer&facet=sensor_name&refine.value_type=PM2.5&refine.land=Nordrhein-Westfalen', (resp) => {
@@ -93,5 +93,5 @@ let data = '';
     }
   });
 }).on('error', () => {
-  console.log("Fehler");
+  console.log('Fehler');
 });
