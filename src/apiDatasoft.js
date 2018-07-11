@@ -38,7 +38,8 @@ https.get('https://public.opendatasoft.com/api/records/1.0/search/?dataset=api-l
               long: pm25Value.records[j].fields.location[1],
               lat: pm25Value.records[j].fields.location[0],
             }).then(({data, headers, status}) => {
-            }, err => {
+
+            }, ({err}) => {
               console.log();
             });
             counter++;
