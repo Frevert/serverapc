@@ -50,7 +50,7 @@ app.put('/', function(req, res){
         }).then(({data, headers, status}) => {
 
         }, err => {
-          console.log('Fehler');
+          console.log(err);
         });
       });
     }, err => {
@@ -61,7 +61,7 @@ app.put('/', function(req, res){
 app.listen(8080);
 
 
-checkEmailNotification = function(weatherData, config){
+function checkEmailNotification(weatherData, config){
   var userIds = config.userId;
   userIds.forEach((userId) => {
     couch.get('all_users', userId).then(({data, headers, status}) => {
