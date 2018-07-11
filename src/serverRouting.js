@@ -78,7 +78,7 @@ function checkEmailNotification(weatherData, config){
       console.log(err.message);
     });
   });
-};
+}
 
 function checkWeatherData(weatherData, config, emailAddress, sensorId) {
   /* eslint-disable */
@@ -95,4 +95,4 @@ function checkWeatherData(weatherData, config, emailAddress, sensorId) {
     sendMail.MailSenden(emailAddress, 'Value of pm 10 is over ' + config.pm10_limit, sensorId);
   }
   /* eslint-enable */
-};
+}
