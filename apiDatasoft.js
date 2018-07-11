@@ -5,6 +5,12 @@ var pm10Value = '';
 const NodeCouchDb = require('node-couchdb');
 var date = require('date-and-time');
 
+var apiUrl = 'https://public.opendatasoft.com/' + 
+'api/records/1.0/search/?dataset=api-luftdateninfo&rows=500&' + 
+'sort=-timestamp&facet=timestamp&facet=land' + 
+'&facet=value_type&facet=sensor_manufacturer&facet=sensor_name' + 
+'&refine.value_type=PM2.5&refine.land=Nordrhein-Westfalen';
+
 date.locale('de');
 
 var couch = new NodeCouchDb({
@@ -13,7 +19,7 @@ var couch = new NodeCouchDb({
   port: 5984,
 });
 
-https.get('https://public.opendatasoft.com/api/records/1.0/search/?dataset=api-luftdateninfo&rows=500&sort=-timestamp&facet=timestamp&facet=land&facet=value_type&facet=sensor_manufacturer&facet=sensor_name&refine.value_type=PM10&refine.land=Nordrhein-Westfalen', (resp) => {
+https.get(apiUrl, (resp) => {
   let data = '';
   var datum = date.format(new Date(), 'DD.MM.YY');
   resp.on('data', (chunk) => {
@@ -45,10 +51,10 @@ https.get('https://public.opendatasoft.com/api/records/1.0/search/?dataset=api-l
     }
   });
 }).on('error', () => {
-  console.log(error.explanation);
+  console.log(resp.err.explanation);
 });
 
-https.get('https://public.opendatasoft.com/api/records/1.0/search/?dataset=api-luftdateninfo&rows=500&sort=-timestamp&facet=timestamp&facet=land&facet=value_type&facet=sensor_manufacturer&facet=sensor_name&refine.value_type=PM2.5&refine.land=Nordrhein-Westfalen', (resp) => {
+https.get(apiUrl, (resp) => {
   let data = '';
   var datum = date.format(new Date(), 'DD.MM.YY');
 
@@ -72,6 +78,7 @@ https.get('https://public.opendatasoft.com/api/records/1.0/search/?dataset=api-l
               lat: pm25Value.records[j].fields.location[0],
             }).then(({data, headers, status}) => {
             }, err => {
+              console.log(err.explanation)
             });
             counter++;
           }
@@ -81,5 +88,5 @@ https.get('https://public.opendatasoft.com/api/records/1.0/search/?dataset=api-l
     }
   });
 }).on('error', () => {
-  console.log(error.explanation);
+  console.log(resp.err.explanation);
 });
