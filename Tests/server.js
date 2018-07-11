@@ -12,7 +12,7 @@ var user = {
 }
 
 app.get('/:id', function(req,res){
-	fs.readFile(__dirname + "/" + "user.json", 'utf8'. function(err,data){
+	fs.readFile(__dirname + "/" + "user.json", 'utf8', function(err,data){
 		var users = JSON.parse(data);
 		var user = users["user" + req.params.id];
 		console.log(user);

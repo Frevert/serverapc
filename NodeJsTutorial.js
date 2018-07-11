@@ -1,28 +1,33 @@
 var express = require('express');
-var formidable = require('formidable');
-
 var app = express();
+var NodeCouchDb = require('node-couchdb');
+var sendMail = require('./demo_sendmail');
 
-app.use(express.static('puplic'));
+app.use(express.json());
 
-app.get('/', function(req, res) {
-	res.sendFile(__dirname + '/index.html');
+var couch = new NodeCouchDb({
+	host:'www.wasdabyx.de',
+	protocol:'http',
+	port:5984
 });
 
-app.post('/', function(req,res) {
-	var form = new formidable.IncomingForm();
-	
-	form.parse(req);
-	
-	form.on('fileBegin', function(name, file) {
-		file.path = __dirname + '/puplic/' + file.name;
+app.get('/', function(req,res){
+	couch.get("all_sensors", "sensor_" + 12345).then(({data, headers, status}) => {
+		data.userId.forEach((userId) => {
+			console.log(userId);
+			couch.get("all_users", userId).then(({data, headers, status}) => {
+				if(data.emailnotification){
+					sendMail.MailSenden(data.email, "Gesendet");
+				}
+			}, err => {
+				console.log(err.message);
+			});
+		});
+		res.sendStatus(200);
+	}, err => {
+		console.log(err.message);
+		res.sendStatus(404);
 	});
-	
-	form.on('file', function(name, file) {
-		console.log('Uploaded ' + file.name);
-	});
-	
-	res.sendFile(__dirname + '/index.html');
 });
 
-app.listen(80);
+app.listen(8081);
