@@ -7,8 +7,8 @@ var date = require('date-and-time');
 date.locale('de');
 
 var couch = new NodeCouchDb({
-	host: 'www.wasdabyx.de',
-	protocol: 'http',
+  host: 'www.wasdabyx.de',
+  protocol: 'http',
 	port: 5984,
 });
 
@@ -23,10 +23,10 @@ https.get('https://public.opendatasoft.com/api/records/1.0/search/?dataset=api-l
 		var counter = 0;
 		pm10Value = apiData;
 		if (pm25Value !== '') {
-			for(var i = 0;i<pm10Value.records.length;i++){
-				for(var j=0; j<pm25Value.records.length; j++){
-					if(pm25Value.records[j].fields.timestamp == pm10Value.records[i].fields.timestamp && pm25Value.records[j].fields.location[0] == pm10Value.records[i].fields.location[0] && pm25Value.records[j].fields.location[1] == pm10Value.records[i].fields.location[1]){
-						couch.insert("api_opendatasoft",{
+			for (var i = 0; i<pm10Value.records.length; i++) {
+				for (var j = 0; j<pm25Value.records.length; j++) {
+					if (pm25Value.records[j].fields.timestamp === pm10Value.records[i].fields.timestamp && pm25Value.records[j].fields.location[0] === pm10Value.records[i].fields.location[0] && pm25Value.records[j].fields.location[1] === pm10Value.records[i].fields.location[1]) {
+						couch.insert("api_opendatasoft", {
 							timestamp: pm25Value.records[j].fields.timestamp,
 							pm10: pm10Value.records[i].fields.value,
 							pm25: pm25Value.records[j].fields.value,
