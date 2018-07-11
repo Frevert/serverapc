@@ -7,9 +7,11 @@ const http = require('http');
 
 app.use(express.static('puplic'));
 
+/* eslint-disable */
 const privateKey = fs.readFileSync('/etc/letsencrypt/live/wasdabyx.de/privkey.pem', 'utf8');
 const certificate = fs.readFileSync('/etc/letsencrypt/live/wasdabyx.de/cert.pem', 'utf8');
 const ca = fs.readFileSync('/etc/letsencrypt/live/wasdabyx.de/chain.pem', 'utf8');
+/* eslint-enable */
 
 const credentials = {
   key: privateKey,
