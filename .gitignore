@@ -8,3 +8,5 @@ puplic/
 uploads/
 couchdb.js
 .mailsenden.js.swp
+NodeJsTutorial.js
+demo_sendmail.js

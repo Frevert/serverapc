@@ -19,7 +19,7 @@ var couch2 = new NodeCouchDb({
 app.use(express.json());
 
 app.get('/config', function(req,res){
-	couch.get("all_sensors", "sensor_" + req.param('id')).then(({data,headers, status}) => {
+	couch.get("all_sensors", "sensor_" + req.param('id')).then(({data, headers, status}) => {
 		responseJson = '{"id": ' + data.config.identifier + ', "url":"http://www.wasdabyx.de:8080","interval":' + data.config.interval+', "long": ' +  data.config.long + ', "lat": ' + data.config.lat + '}';
 		res.send(responseJson);
 	}, err => {
