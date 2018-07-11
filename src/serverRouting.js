@@ -18,10 +18,8 @@ var couch2 = new NodeCouchDb({
 app.use(express.json());
 
 app.get('/config', function(req, res){
-  /* eslint-disable */
   couch.get('all_sensors', 'sensor_' + req.param('id')).then(({data, headers, status}) => {
     var responseJson = '{"id": \"' + data.config.identifier + '\", "url":"http://www.wasdabyx.de:8080","interval":' + data.config.interval + ', "long": ' + data.config.long + ', "lat": ' + data.config.lat + '}';
-    /* eslint-enable */
     console.log(responseJson);
     res.send(responseJson);
   }, err => {
@@ -34,9 +32,7 @@ app.put('/', function(req, res){
   if (req.body.id == null) {
     res.status(404).send('Missing id');
   } else {
-    /* eslint-disable */
     couch.get('all_sensors', 'sensor_' + req.body.id).then(({data, headers, status}) => {
-    /* eslint-enable */
       var config = data;
       res.sendStatus(200);
       req.body.data.forEach((data) => {
@@ -70,9 +66,7 @@ function checkEmailNotification(weatherData, config){
   userIds.forEach((userId) => {
     couch.get('all_users', userId).then(({data, headers, status}) => {
       if (data.emailnotification){
-        /* eslint-disable */
         checkWeatherData(weatherData, config.config, data.email, config.config.identifier);
-        /* eslint-enable */
       }
     }, err => {
       console.log(err.message);
@@ -81,7 +75,6 @@ function checkEmailNotification(weatherData, config){
 }
 
 function checkWeatherData(weatherData, config, emailAddress, sensorId) {
-  /* eslint-disable */
   if (weatherData.temperature >= config.temperature_limit){
     sendMail.MailSenden(emailAddress, 'Temperature is over ' + config.temperature_limit, sensorId);
   }
@@ -94,5 +87,4 @@ function checkWeatherData(weatherData, config, emailAddress, sensorId) {
   if (weatherData.pm10 >= config.pm10_limit){
     sendMail.MailSenden(emailAddress, 'Value of pm 10 is over ' + config.pm10_limit, sensorId);
   }
-  /* eslint-enable */
 }

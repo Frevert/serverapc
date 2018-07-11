@@ -17,7 +17,7 @@ View full License [here](https://github.com/ghaake/apc-pouchdb/blob/master/LICEN
 
 ### ServerRouting
 
-Die Route um die Daten, die Raspberry kommen zu prüfen und in die CouchDb einfügen
+Die Route, um die Daten, die vom Raspberry kommen zu prüfen und in die CouchDb einzufügen
  
 ```javascript
 app.put('/', function(req, res){
@@ -53,3 +53,21 @@ app.put('/', function(req, res){
   }
 });
 ```
+
+Die Route, um die config für die Sensoren an den Raspberry zu schicken
+
+```javascript
+app.get('/config', function(req, res){
+  /* eslint-disable */
+  couch.get('all_sensors', 'sensor_' + req.param('id')).then(({data, headers, status}) => {
+    var responseJson = '{"id": \"' + data.config.identifier + '\", "url":"http://www.wasdabyx.de:8080","interval":' + data.config.interval + ', "long": ' + data.config.long + ', "lat": ' + data.config.lat + '}';
+    /* eslint-enable */
+    console.log(responseJson);
+    res.send(responseJson);
+  }, err => {
+    console.log(err.message);
+    res.send(err.message);
+  });
+});
+```
+
