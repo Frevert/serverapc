@@ -1,8 +1,8 @@
 'use strict';
-const https = require('https');
+var https = require('https');
 var pm25Value = '';
 var pm10Value = '';
-const NodeCouchDb = require('node-couchdb');
+var NodeCouchDb = require('node-couchdb');
 var date = require('date-and-time');
 
 date.locale('de');

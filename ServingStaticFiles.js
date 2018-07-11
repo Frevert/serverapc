@@ -1,9 +1,9 @@
 'use strict';
 var express = require('express');
 var app = express();
-const fs = require('fs');
-const https = require('https');
-const http = require('http');
+var fs = require('fs');
+var https = require('https');
+var http = require('http');
 
 app.use(express.static('puplic'));
 
