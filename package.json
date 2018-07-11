@@ -1,0 +1,28 @@
+{
+  "name": "serverapc",
+  "version": "1.0.0",
+  "description": "Repository for project 'Air Pollution Control' (Server part)",
+  "main": "serverRouting.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "pretest": "eslint --ignore-path .gitignore ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Frevert/serverapc.git"
+  },
+  "author": "MichaelFrevert",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Frevert/serverapc/issues"
+  },
+  "homepage": "https://github.com/Frevert/serverapc#readme",
+  "dependencies": {
+    "date-and-time": "^0.6.2",
+    "formidable": "^1.2.1"
+  },
+  "devDependencies": {
+    "eslint": "^5.1.0",
+    "eslint-config-strongloop": "^2.1.0"
+  }
+}
