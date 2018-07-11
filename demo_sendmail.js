@@ -6,7 +6,7 @@ var transp = mail.createTransport({
 	service: 'gmail',
 	auth: {
 		user: "michaelfrevert@googlemail.com",
-		pass: "m1ch43l92"
+		pass: ""
 	}
 });
 
