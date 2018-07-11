@@ -4,7 +4,7 @@
   "description": "Repository for project 'Air Pollution Control' (Server part)",
   "main": "serverRouting.js",
   "scripts": {
-    "test": "eslint src/"
+    "test": "jshint src/"
   },
   "repository": {
     "type": "git",
@@ -18,7 +18,8 @@
   "homepage": "https://github.com/Frevert/serverapc#readme",
   "dependencies": {
     "date-and-time": "^0.6.2",
-    "formidable": "^1.2.1"
+    "formidable": "^1.2.1",
+    "jshint": "^2.9.5"
   },
   "devDependencies": {
     "esdoc": "^1.1.0",
