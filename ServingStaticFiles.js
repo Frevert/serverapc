@@ -23,6 +23,9 @@ app.get('/', function(reg, res){
   res.send('Hello World');
 });
 
+app.get('/login', function(req, res){
+  res.sendFile(__dirname + "/puplic/index.html");
+});
 
 const httpServer = http.createServer(app);
 const httpsServer = https.createServer(credentials, app);
