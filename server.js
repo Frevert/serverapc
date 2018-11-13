@@ -108,6 +108,11 @@ app.get('/logout', (req, res) => {
 	}
 });
 
+//route for Minecraft mods
+app.route('Minecraft').get(sessionChecker, (req, res) => {
+	res.sendFile(__dirname + '/Minecraft.html');
+});
+
 //route for handling 404 requests(unavailable routes)
 app.use(function(req, res, next) {
 	res.status(404).send("Sorry can't find that!");
