@@ -1,0 +1,28 @@
+table, th, td {
+	border: 2px solid black;
+	border-collapse: collapse;
+}
+th {
+	font-size: 25px;
+	background-color: lightblue;
+}
+
+th.modname {
+	width: 20%;
+}
+
+th.description {
+	width: 50%;
+}
+
+th.tutorial {
+	width: 20%;
+}
+
+th.wiki {
+	width: 10%;
+}
+
+td {
+	vertical-align: top;
+}
